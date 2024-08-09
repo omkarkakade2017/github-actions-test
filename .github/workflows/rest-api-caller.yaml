@@ -27,8 +27,8 @@ jobs:
 
             - name: Download Generated file
               uses: actions/download-artifact@v2
-              with: 
-                name: data.json
-                path: ./output
+
+            - name: list files
+              run: ls -R
               
     
