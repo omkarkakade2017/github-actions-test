@@ -24,6 +24,13 @@ jobs:
             - name: Write data to JSON file
               run: |
                   echo data found : '${{steps.codelanguages.outputs.data}}' > data.json
+            
+            - name: 'Upload Artifact'
+              uses: actions/upload-artifact@v4
+              with:
+                     name: data
+                     path: data.json
+                     retention-days: 1
 
             - name: Download Generated file
               uses: actions/download-artifact@v4
