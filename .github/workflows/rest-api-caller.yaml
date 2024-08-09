@@ -1,0 +1,21 @@
+name: call git api
+on: 
+   push:
+        branches: main
+
+jobs:
+    call-api:
+        runs-on: ubuntu-latest
+        steps: 
+            - name: call the code
+              id: codelanguages
+              uses: octokit/request-action@v2.1.0
+              with:
+                route: GET /repos/{owner}/{repo}/languages
+                owner: omkarkakade2017
+                repo: WolfiJavaDemo1
+              env:
+                GITHUB_TOKEN: ${{secrets.GitCopilot}}
+            - run: "echo data found : '${{codelanguages.outputs.data}}'"
+              
+    
