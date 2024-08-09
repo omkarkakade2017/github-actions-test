@@ -20,5 +20,15 @@ jobs:
               env:
                 GITHUB_TOKEN: ${{secrets.GIT_TOKEN}}
             - run: "echo data found : '${{steps.codelanguages.outputs.data}}'"
+
+            - name: Write data to JSON file
+              run: |
+                  echo data found : '${{steps.codelanguages.outputs.data}}' > data.json
+
+            - name: Download Generated file
+              uses: actions/download-artifact@v2
+              with: 
+                name: data.json
+                path: ./output
               
     
