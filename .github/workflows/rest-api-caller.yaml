@@ -7,9 +7,8 @@ jobs:
     call-api:
         runs-on: ubuntu-latest
         steps: 
-            - name: call the code
+            - uses: octokit/request-action@v2.1.0 
               id: codelanguages
-              uses: octokit/request-action@v2.1.0
               with:
                 route: GET /repos/{owner}/{repo}/languages
                 owner: omkarkakade2017
