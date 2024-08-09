@@ -1,7 +1,11 @@
 name: call git api
 on: 
-   push:
-        branches: main
+   workflow_dispatch:
+      inputs:
+         name: 
+            description: Enter Repo Name
+            required: true
+      
 
 jobs:
     call-api:
@@ -12,7 +16,7 @@ jobs:
               with:
                 route: GET /repos/{owner}/{repo}/languages
                 owner: omkarkakade2017
-                repo: WolfiJavaDemo1
+                repo: ${{github.events.input.name}}
               env:
                 GITHUB_TOKEN: ${{secrets.GIT_TOKEN}}
             - run: "echo data found : '${{steps.codelanguages.outputs.data}}'"
