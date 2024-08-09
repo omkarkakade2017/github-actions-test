@@ -15,6 +15,6 @@ jobs:
                 repo: WolfiJavaDemo1
               env:
                 GITHUB_TOKEN: ${{secrets.GitCopilot}}
-            - run: "echo data found : '${{codelanguages.outputs.data}}'"
+            - run: "echo data found : '${{steps.codelanguages.outputs.data}}'"
               
     
